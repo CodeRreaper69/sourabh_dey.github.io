@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourabh Dey - AI/ML Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e88e5;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e88e5, #0d47a1);
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+		.social-links a.emoji-link {
+			color: white !important; /* Use !important to try and override other styles */
+			text-decoration: none; /* Ensure no underline */
+			font-size: 1.5rem; /* Match icon size */
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			line-height: 1;
+		}
+				
+        section {
+            padding: 60px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .skills {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-category {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background-color: #e3f2fd;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .experience {
+            background-color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+            text-align: right;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .timeline-content h4 {
+            margin-bottom: 10px;
+            font-weight: normal;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .timeline-content p {
+            font-size: 0.95rem;
+        }
+        
+        .projects {
+            background-color: #f9f9f9;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            height: 180px;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-size: 3rem;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 15px;
+        }
+        
+        .project-tag {
+            background-color: #e3f2fd;
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        footer p {
+            margin-bottom: 15px;
+        }
+        
+        footer .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+            }
+            
+            .left {
+                text-align: left;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="image.JPG" alt="Sourabh Dey" class="profile-pic">
+            <div class="hero-text">
+                <h1>Sourabh Dey</h1>
+                <p>ML Developer | AI Engineer | Cybersecurity Enthusiast</p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/CodeRreaper69" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sourabh-dey" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://huggingface.co/GenDey" target="_blank" <i class="fas fa-face-grin"></i></a>
+                <a href="https://X.com/DeyXSourabh" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="quote">
+                "Python is to love, Linux is to marry, ML to date, DSA is to live with and Mathematics for life"
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>With a strong foundation in Machine Learning, Deep Learning, and Mathematics, I have built numerous applications and worked on several projects that tackle real-life problems.</p>
+                    <p>Proficient in Python and Selenium, I focus on building automation systems to boost productivity and reduce manual effort. My experience with Unix-based OS, particularly Linux, allows me to specialize in system automation and OS development.</p>
+                    <p>Specialized in cybersecurity, I excel in securing systems against vulnerabilities and am proficient in neural networks for facial recognition and gestures. Beyond tech, I enjoy teaching math and exploring creative outlets like singing and content writing.</p>
+                </div>
+                <div class="skills">
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Automation</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">MATLAB</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Core Competencies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Neural Networks</span>
+                            <span class="skill-tag">Web Scraping</span>
+                            <span class="skill-tag">Selenium</span>
+                            <span class="skill-tag">MLOps</span>
+                            <span class="skill-tag">Fine-tuning LLMs</span>
+                            <span class="skill-tag">Computer Networks</span>
+                            <span class="skill-tag">IoT</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Teaching</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Content Writing</span>
+                            <span class="skill-tag">Innovation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Subject Matter Expert</h3>
+                        <h4>Chegg Inc. | Jan 2025 - Apr 2025</h4>
+                        <p>Tutored undergraduate students on Mathematics, CS subjects and project development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Freelance Software Engineer</h3>
+                        <h4>Self-employed | Oct 2024 - Apr 2025</h4>
+                        <p>Building robust solutions across various tech stacks, specializing in ML-based products from websites to algorithmic development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>ML Developer</h3>
+                        <h4>Syntalix | Jul 2024 - Jan 2025</h4>
+                        <p>Developed AI and Cybersecurity based products for optimization and enhancement.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Engineering Mathematics Tutor</h3>
+                        <h4>Jul 2024 - Dec 2024</h4>
+                        <p>Taught engineering mathematics covering basics and advanced topics with daily doubt clearing and lecture videos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Machine Learning Intern</h3>
+                        <h4>Syntalix | May 2024 - Aug 2024</h4>
+                        <p>Built real-life projects based on machine learning, core Python, automation, and ML applications.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Web Scraping and ML Intern</h3>
+                        <h4>TEOCO | Jun 2024 - Oct 2024</h4>
+                        <p>Worked on real-world projects optimizing cost structure and saving manual effort by automating workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>LLM Fine-Tuning System</h3>
+                        <p>Custom system for fine-tuning large language models for specific domain applications with optimized performance.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">AI</span>
+                            <span class="project-tag">NLP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Cyber Security Suite</h3>
+                        <p>Security system using ML to detect and prevent vulnerabilities in network infrastructure and applications.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Cybersecurity</span>
+                            <span class="project-tag">ML</span>
+                            <span class="project-tag">Networks</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Magnetic Field Detector</h3>
+                        <p>Innovative system for detecting and mapping magnetic fields with high precision and real-time visualization.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Hardware</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Wireless Current Sensor</h3>
+                        <p>Remote monitoring system for electrical current using wireless sensors with data processing capabilities.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">Electronics</span>
+                            <span class="project-tag">Data Processing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Minimalist CLI Tool</h3>
+                        <p>Command line interface designed for efficiency and minimalist experience with powerful automation capabilities.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Linux</span>
+                            <span class="project-tag">CLI</span>
+                            <span class="project-tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Neural Network for Facial Recognition</h3>
+                        <p>Advanced facial recognition system using neural networks with high accuracy and low computational requirements.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Deep Learning</span>
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Bachelor of Technology - BTech, Computer Science</h3>
+                        <h4>Institute Of Engineering and Management | 2022 - 2026</h4>
+                        <p>Currently pursuing a degree in Computer Science with focus on AI and Machine Learning.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Secondary Education</h3>
+                        <h4>Kendriya Vidyalaya | 2009 - 2021</h4>
+                        <p>Focused on Mathematics and Computer Science during secondary education.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Feel free to reach out for collaborations or opportunities!</p>
+            <div class="social-links">
+                <a href="https://github.com/CodeRreaper69" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sourabh-dey" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://huggingface.co/GenDey" target="_blank"><i class="fas fa-face-smile"></i></a>
+                <a href="https://X.com/DeyXSourabh" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Sourabh Dey. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
